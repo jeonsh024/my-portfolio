@@ -1,0 +1,51 @@
+# Node
+node_modules/
+/.pnp
+.pnp.js
+.env
+.env.*.local
+
+# Next.js
+.next/
+out/
+
+# production
+/build
+
+# Tailwind
+tailwind.config.js
+postcss.config.js
+
+# Prisma
+prisma/dev.db
+prisma/dev.db-journal
+*.sqlite
+*.sqlite-journal
+*.tsbuildinfo
+
+# Logs
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Prisma migration artifacts
+prisma/migrations/
+
+# Unused sample assets
+public/vercel.svg
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Auto-generated typings
+auto-imports.d.ts
+components.d.ts
+.eslintrc-auto-import.json
