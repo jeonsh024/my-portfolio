@@ -3,6 +3,7 @@ import Header from '@/components/layout/Header'
 import Experience from '@/features/Experience'
 import Project from '@/features/Project'
 import Profile from '@/features/Profile'
+import Skill from '@/features/Skill'
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
         <Intro />
         <Header />
 
+        <Skill />
         <Experience />
         <Project />
         <Profile />
