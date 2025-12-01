@@ -12,10 +12,18 @@ export default function Home() {
         <Intro />
         <Header />
 
-        <Skill />
-        <Experience />
-        <Project />
-        <Profile />
+        <section id="skill" className="w-full scroll-mt-24">
+          <Skill />
+        </section>
+        <section id="experience" className="w-full scroll-mt-24">
+          <Experience />
+        </section>
+        <section id="project" className="w-full scroll-mt-24">
+          <Project />
+        </section>
+        <section id="profile" className="w-full scroll-mt-24">
+          <Profile />
+        </section>
       </main>
     </div>
   )

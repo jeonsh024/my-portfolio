@@ -121,6 +121,7 @@
 
 html {
   font-family: 'Pretendard', sans-serif;
+  scroll-behavior: smooth;
 }
 
 @layer base {
