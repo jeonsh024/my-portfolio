@@ -13,17 +13,17 @@ const handleDownload = () => {
 const Intro = () => {
   return (
     <div className="w-full text-center">
-      <h1 className="m-auto">
+      <h1 className="m-auto text-[32px] font-medium leading-[1.4]">
         안녕하세요
         <br />
         프론트엔드 개발자
         <br />
-        전승희입니다.
+        <strong>전승희</strong>입니다.
       </h1>
 
       <Button
         variant="secondary"
-        className="cursor-pointer"
+        className="cursor-pointer mt-[20px]"
         onClick={handleDownload}
       >
         이력서 다운로드 <Download />

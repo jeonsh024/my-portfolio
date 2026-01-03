@@ -30,20 +30,20 @@ const Profile = () => {
         </li>
       </ul>
 
-      <p className="text-sm">감사합니다</p>
-      <ul className="space-y-1 text-sm">
-        <li>전화번호: 010.9308.3154</li>
-        <li>
-          이메일:{' '}
-          <a
-            href="mailto:jeonsh024@gmail.com"
-            className="underline underline-offset-4"
-          >
-            jeonsh024@gmail.com
-          </a>
-        </li>
-        <li>
-          Github:{' '}
+      <p className="text-sm my-4">감사합니다</p>
+      <div className="grid grid-cols-3 gap-3 bg-[#eef2f7] rounded-[14px] max-w-[320px] p-[20px] mx-auto text-[16px]">
+        <p className="w-[90px] font-medium">전화번호</p>
+        <p className="col-span-2">010.9308.3154</p>
+
+        <p className="w-[90px] font-medium">이메일</p>
+        <a
+          href="mailto:jeonsh024@gmail.com"
+          className="underline underline-offset-4 col-span-2"
+        >
+          jeonsh024@gmail.com
+        </a>
+        <p className="w-[90px] font-medium">Github</p>
+        <p className="col-span-2">
           <a
             href="https://github.com/jeonsh024"
             target="_blank"
@@ -52,8 +52,8 @@ const Profile = () => {
           >
             @jeonsh024
           </a>
-        </li>
-      </ul>
+        </p>
+      </div>
     </section>
   )
 }

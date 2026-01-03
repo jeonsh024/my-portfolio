@@ -48,37 +48,35 @@ const Skill = () => {
   }
 
   return (
-    <div className="w-full space-y-6">
-      <div className="sticky top-0 z-10">
-        <div className="mx-auto flex w-full flex-wrap items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 p-2 shadow-lg backdrop-blur-md dark:border-white/10 dark:bg-white/5">
-          {TABS.map((tab) => {
-            const isActive = activeTab === tab.key
-            return (
-              <button
-                key={tab.key}
-                type="button"
-                onClick={() => handleTabClick(tab.key)}
-                className={[
-                  'px-4 py-2 rounded-lg border transition-all',
-                  'backdrop-blur-lg',
-                  isActive
-                    ? 'bg-white/30 border-white/40 shadow-md text-gray-900 dark:text-white'
-                    : 'bg-white/10 hover:bg-white/20 border-white/20 text-gray-800/80 dark:text-white/80',
-                ].join(' ')}
-                aria-pressed={isActive}
-              >
-                {tab.label}
-              </button>
-            )
-          })}
-        </div>
+    <div className="w-full  flex flex-col gap-8">
+      <h4 className="text-center font-semibold text-primary">
+        기술 스택 및 도구
+      </h4>
+      <div className="mx-auto flex items-center justify-center rounded-[30px] bg-secondary p-1">
+        {TABS.map((tab) => {
+          const isActive = activeTab === tab.key
+          return (
+            <button
+              key={tab.key}
+              type="button"
+              onClick={() => handleTabClick(tab.key)}
+              className={[
+                'px-4 py-2 rounded-[20px] border transition-all border-0',
+                isActive ? 'bg-white font-semibold' : 'bg-transparent',
+              ].join(' ')}
+              aria-pressed={isActive}
+            >
+              {tab.label}
+            </button>
+          )
+        })}
       </div>
 
-      <ul className="mx-auto grid w-full grid-cols-2 gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 shadow-xl backdrop-blur-md sm:grid-cols-3 md:grid-cols-4 dark:border-white/5 dark:bg-white/0">
+      <ul className="mx-auto grid w-90 max-w-[420px] grid-cols-2 gap-3 rounded-[20px] border border-white/10 bg-white/5 p-4 shadow-xl backdrop-blur-md sm:grid-cols-3 md:grid-cols-4 dark:border-white/5 dark:bg-white/0">
         {displaySkills.map((skill) => (
           <li
             key={skill}
-            className="rounded-xl border border-white/20 bg-white/10 px-3 py-2 text-center text-sm font-medium text-gray-900 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-white/5 dark:text-white"
+            className="rounded-[20px] border border-white/20 bg-white/10 px-3 py-2 text-center text-sm font-medium text-gray-900 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-white/5 dark:text-white"
           >
             {skill}
           </li>

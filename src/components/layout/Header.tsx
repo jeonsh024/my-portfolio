@@ -44,7 +44,7 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-40 w-full">
       <div className="mx-auto my-2 flex w-full justify-center">
-        <ul className="flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 p-2 shadow-lg backdrop-blur-md dark:border-white/10 dark:bg-white/5">
+        <ul className="flex items-center gap-2 rounded-[30px] bg-secondary p-2 px-1 shadow-lg backdrop-blur-md">
           {navItems.map(({ label, id }) => {
             const isActive = activeId === id
             return (
@@ -54,10 +54,8 @@ const Header = () => {
                   aria-current={isActive ? 'page' : undefined}
                   onClick={() => setActiveId(id)}
                   className={[
-                    'px-4 py-2 rounded-lg border transition-colors backdrop-blur',
-                    isActive
-                      ? 'bg-white/30 border-white/40 text-gray-900 shadow-md dark:text-white'
-                      : 'bg-white/10 hover:bg-white/20 border-white/20 text-gray-800/80 dark:text-white/80',
+                    'px-4 py-2 rounded-[30px] transition-colors backdrop-blur ',
+                    isActive ? 'bg-white font-semibold' : 'bg-transparent',
                   ].join(' ')}
                 >
                   {label}
