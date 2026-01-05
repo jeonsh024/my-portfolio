@@ -19,13 +19,21 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
 
       - name: Install deps
-        run: npm ci
+        run: pnpm install --frozen-lockfile
+
+      # Prisma를 쓰는 프로젝트라면 이 단계가 CI에서 재발 방지에 안전합니다.
+      - name: Generate Prisma Client
+        run: pnpm prisma generate
 
       - name: Build
-        run: npm run build
+        run: pnpm build
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
