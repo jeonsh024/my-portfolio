@@ -301,7 +301,7 @@ const ITEMS_PER_PAGE = 6
 
 const Project = () => {
   const [visible, setVisible] = useState(ITEMS_PER_PAGE)
-  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null)
+  // const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null)
   
   const visibleItems = PROJECTS.slice(0, visible)
   const hasMore = visible < PROJECTS.length
@@ -316,7 +316,7 @@ const Project = () => {
     return
   }
 
-  setSelectedProject(project)
+  // setSelectedProject(project)
 }
 
   return (
