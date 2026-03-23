@@ -26,8 +26,9 @@ type ProjectItem = {
   period: string
   summary: string[]
   skills: string[]
-  link?: string
-  contents?: any
+  detailType: 'LINK' | 'CONTENTS'
+  detailLink?: string
+  contents?: string[]
 }
 
 const PROJECTS: ProjectItem[] = [
@@ -56,6 +57,7 @@ const PROJECTS: ProjectItem[] = [
       'GitHub Actions',
       'Firebase',
     ],
+    detailType: 'CONTENTS',
   },
   {
     id: 'app-2-test-2025',
@@ -75,6 +77,7 @@ const PROJECTS: ProjectItem[] = [
       'Unit Testing',
       'Test Automation',
     ],
+    detailType: 'CONTENTS',
   },
   {
     id: 'tms-saas-2025-08',
@@ -87,6 +90,7 @@ const PROJECTS: ProjectItem[] = [
       'REST API 연동',
     ],
     skills: ['Vue 3', 'TypeScript', 'TanStack Query', 'Sass'],
+    detailType: 'CONTENTS',
   },
   {
     id: 'app-2-2025',
@@ -99,6 +103,7 @@ const PROJECTS: ProjectItem[] = [
       'REST API 연동',
     ],
     skills: ['Vue 3', 'TypeScript', 'TanStack Query', 'Sass', 'Vuetify'],
+    detailType: 'CONTENTS',
   },
   {
     id: 'admin-2-2024h2',
@@ -112,6 +117,7 @@ const PROJECTS: ProjectItem[] = [
       'REST API 연동',
     ],
     skills: ['Vue 3', 'TypeScript', 'TanStack Query', 'Sass', 'Vuetify'],
+    detailType: 'CONTENTS',
   },
   {
     id: 'app-2-2024h2',
@@ -122,6 +128,7 @@ const PROJECTS: ProjectItem[] = [
       '배너/이미지 최적화, 조건부 버튼 노출 등 마이크로 UX 대응',
     ],
     skills: ['Vue 3', 'TypeScript', 'TanStack Query', 'Sass', 'Vuetify'],
+    detailType: 'CONTENTS',
   },
   {
     id: 'mfc-mobile-2024h2',
@@ -133,6 +140,7 @@ const PROJECTS: ProjectItem[] = [
       'REST API 연동',
     ],
     skills: ['Vue 3', 'TypeScript', 'TanStack Query', 'Sass', 'Vuetify'],
+    detailType: 'CONTENTS',
   },
   {
     id: 'recall-2024',
@@ -145,6 +153,7 @@ const PROJECTS: ProjectItem[] = [
       'REST API 연동',
     ],
     skills: ['Vue 3', 'TypeScript', 'TanStack Query', 'Sass', 'Vuetify'],
+    detailType: 'CONTENTS',
   },
   {
     id: 'admin-2-renewal',
@@ -158,6 +167,7 @@ const PROJECTS: ProjectItem[] = [
       'REST API 연동',
     ],
     skills: ['Vue 3', 'TypeScript', 'TanStack Query', 'Sass'],
+    detailType: 'CONTENTS',
   },
   {
     id: 'app-2-renewal',
@@ -171,6 +181,7 @@ const PROJECTS: ProjectItem[] = [
       'REST API 연동',
     ],
     skills: ['Vue 3', 'TypeScript', 'TanStack Query', 'Vuetify', 'Sass'],
+    detailType: 'CONTENTS',
   },
   {
     id: 'mfc-2-0',
@@ -182,6 +193,7 @@ const PROJECTS: ProjectItem[] = [
       'REST API 연동',
     ],
     skills: ['Vue 3', 'TypeScript', 'Sass'],
+    detailType: 'CONTENTS',
   },
   {
     id: 'wms-2023',
@@ -194,6 +206,7 @@ const PROJECTS: ProjectItem[] = [
       '템플릿 구조 설계 및 공통 UI 퍼블리싱',
     ],
     skills: ['Vue 3', 'TypeScript', 'Sass', 'Vuetiy'],
+    detailType: 'CONTENTS',
   },
   {
     id: 'legacy-maintenance-2023',
@@ -205,6 +218,7 @@ const PROJECTS: ProjectItem[] = [
       '시스템 유지보수',
     ],
     skills: ['HTML/CSS', 'Sass', 'JavaScript', 'TypeScript'],
+    detailType: 'CONTENTS',
   },
   {
     id: 'rnd-senior',
@@ -215,6 +229,7 @@ const PROJECTS: ProjectItem[] = [
       '아이디어 검증을 위한 프로토타입 설계 및 구현',
     ],
     skills: ['HTML/CSS', 'Sass', 'JavaScript'],
+    detailType: 'CONTENTS',
   },
   {
     id: 'mfc-mobile-2023',
@@ -227,6 +242,7 @@ const PROJECTS: ProjectItem[] = [
       'REST API 연동',
     ],
     skills: ['Vue 3', 'TypeScript', 'Sass'],
+    detailType: 'CONTENTS',
   },
   {
     id: 'new-admin-2022',
@@ -238,6 +254,7 @@ const PROJECTS: ProjectItem[] = [
       'MFC 대시보드(피킹리스트, 박스관리) 반응형 퍼블리싱',
     ],
     skills: ['HTML/CSS', 'JavaScript', 'TypeScript', 'Sass'],
+    detailType: 'CONTENTS',
   },
   {
     id: 'official-2022',
@@ -249,6 +266,25 @@ const PROJECTS: ProjectItem[] = [
       'Alert/Modal/회원가입 등 핵심 컴포넌트 스타일 리팩토링',
     ],
     skills: ['HTML/CSS', 'JavaScript'],
+    detailType: 'CONTENTS',
+  },
+  {
+    id: 'official-2019',
+    title: 'Klanze 웹 퍼블리싱',
+    period: '2019.06 - 2023.08',
+    summary: ['Klanze 웹 퍼블리싱'],
+    skills: ['HTML/CSS', 'JavaScript'],
+    detailType: 'LINK',
+    detailLink: 'https://www.klenze.co.kr/',
+  },
+  {
+    id: 'official-2019',
+    title: 'KCC실리콘 웹 퍼블리싱',
+    period: '2019.06 - 2023.08',
+    summary: ['KCC실리콘 웹 퍼블리싱'],
+    skills: ['HTML/CSS', 'JavaScript'],
+    detailType: 'LINK',
+    detailLink: 'https://www.kccsilicone.com/main.do',
   },
   {
     id: 'official-2017',
@@ -256,15 +292,8 @@ const PROJECTS: ProjectItem[] = [
     period: '2017.06 - 2023.08',
     summary: ['Fairliar 쇼핑몰 반응형 퍼블리싱'],
     skills: ['HTML/CSS', 'JavaScript'],
-    contents: [],
-  },
-  {
-    id: 'official-2017',
-    title: 'Fairliar 골프웨어 쇼핑몰 반응형 퍼블리싱',
-    period: '2017.06 - 2023.08',
-    summary: ['Fairliar 쇼핑몰 반응형 퍼블리싱'],
-    skills: ['HTML/CSS', 'JavaScript'],
-    link: 'https://fairliar.com/',
+    detailType: 'LINK',
+    detailLink: 'https://fairliar.com/',
   },
 ]
 
@@ -272,13 +301,23 @@ const ITEMS_PER_PAGE = 6
 
 const Project = () => {
   const [visible, setVisible] = useState(ITEMS_PER_PAGE)
-
+  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null)
+  
   const visibleItems = PROJECTS.slice(0, visible)
   const hasMore = visible < PROJECTS.length
 
   const handleLoadMore = () => {
     setVisible((v) => Math.min(v + ITEMS_PER_PAGE, PROJECTS.length))
   }
+
+  const handleProjectClick = (project: ProjectItem) => {
+  if (project.detailLink) {
+    window.open(project.detailLink, '_blank', 'noopener,noreferrer')
+    return
+  }
+
+  setSelectedProject(project)
+}
 
   return (
     <section className="mx-auto w-full max-w-[1000px] space-y-10">
@@ -299,6 +338,7 @@ const Project = () => {
                 'hover:-translate-y-1 hover:border-blue-500 hover:bg-blue-600 hover:shadow-lg',
                 'dark:border-white/10 dark:bg-card dark:hover:border-blue-500 dark:hover:bg-blue-600',
               )}
+              onClick={() => handleProjectClick(p)}
             >
               <div className="flex shrink-0 items-start justify-between gap-3">
                 <div
@@ -316,17 +356,6 @@ const Project = () => {
                 <h3 className="text-base font-bold leading-snug text-card-foreground transition-colors group-hover:text-white">
                   {p.title}
                 </h3>
-                {/* <ul className="mt-3 space-y-2">
-                  {p.summary.map((item, summaryIndex) => (
-                    <li
-                      key={`${p.id}-summary-${summaryIndex}`}
-                      className="flex items-start gap-2 text-sm leading-relaxed text-muted-foreground transition-colors group-hover:text-white/90"
-                    >
-                      <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-muted-foreground transition-colors group-hover:bg-white/80" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul> */}
                 <p className="mt-2 line-clamp-5 text-sm leading-relaxed text-muted-foreground transition-colors group-hover:text-white/90">
                   {description}
                 </p>
@@ -334,7 +363,6 @@ const Project = () => {
 
               <div className="flex shrink-0 flex-wrap items-center gap-2 pt-4">
                 {p.skills.map((s, skillIndex) => {
-
                   return (
                     <span
                       key={`${p.id}-${skillIndex}-${s}`}
@@ -344,7 +372,6 @@ const Project = () => {
                       {s}
                     </span>
                   )
-                 
                 })}
               </div>
             </li>
