@@ -2,7 +2,11 @@
 
 const Profile = () => {
   return (
-    <section className="w-full space-y-6 max-w-[820px] mx-auto">
+    <section className="w-full space-y-6 max-w-[580px] mx-auto">
+      <h2 className="text-center text-2xl font-bold tracking-tight text-foreground">
+        교육
+      </h2>
+
       <ul className="space-y-6">
         <li className="grid grid-cols-[140px_1fr] items-start gap-4">
           <div className="pt-1 text-sm font-medium text-foreground/70">
@@ -28,8 +32,8 @@ const Profile = () => {
         </li>
       </ul>
 
-      <div className="py-10">
-        <p className="text-sm my-4 text-center">감사합니다</p>
+      <div className="pt-[120px] pb-[100px]">
+        <p className="text-[24px] font-semibold my-4 text-center">감사합니다</p>
         <div className="grid grid-cols-3 gap-3 bg-[#eef2f7] rounded-[14px] max-w-[320px] p-[20px] mx-auto text-[16px]">
           <p className="w-[90px] font-medium">전화번호</p>
           <p className="col-span-2">010.9308.3154</p>

@@ -229,7 +229,9 @@ const PROJECTS: ProjectItem[] = [
       '아이디어 검증을 위한 프로토타입 설계 및 구현',
     ],
     skills: ['HTML/CSS', 'Sass', 'JavaScript'],
-    detailType: 'CONTENTS',
+    detailType: 'LINK',
+    detailLink:
+      'http://sn-alb-1238897415.ap-northeast-2.elb.amazonaws.com/NutritionMain.php',
   },
   {
     id: 'mfc-mobile-2023',
@@ -269,25 +271,34 @@ const PROJECTS: ProjectItem[] = [
     detailType: 'CONTENTS',
   },
   {
-    id: 'official-2019',
+    id: 'official-2021',
     title: 'Klanze 웹 퍼블리싱',
-    period: '2019.06 - 2023.08',
-    summary: ['Klanze 웹 퍼블리싱'],
+    period: '2021.11 - 2021.12',
+    summary: ['Klanze 마이크로 홈페이지 웹 퍼블리싱'],
     skills: ['HTML/CSS', 'JavaScript'],
     detailType: 'LINK',
     detailLink: 'https://www.klenze.co.kr/',
   },
   {
-    id: 'official-2019',
+    id: 'product3-2021',
     title: 'KCC실리콘 웹 퍼블리싱',
-    period: '2019.06 - 2023.08',
-    summary: ['KCC실리콘 웹 퍼블리싱'],
+    period: '2021.06 - 2021.11',
+    summary: ['KCC실리콘 리뉴얼 웹 퍼블리싱'],
     skills: ['HTML/CSS', 'JavaScript'],
     detailType: 'LINK',
     detailLink: 'https://www.kccsilicone.com/main.do',
   },
   {
-    id: 'official-2017',
+    id: 'product2-2019',
+    title: '한라건설 vr 현장관리 시스템 퍼블리싱',
+    period: '2019.04 - 2019.12',
+    summary: ['한라건설 vr 현장관리 시스템 퍼블리싱'],
+    skills: ['HTML/CSS', 'JavaScript'],
+    detailType: 'LINK',
+    detailLink: 'https://www.klenze.co.kr/',
+  },
+  {
+    id: 'product1-2017',
     title: 'Fairliar 골프웨어 쇼핑몰 반응형 퍼블리싱',
     period: '2017.06 - 2023.08',
     summary: ['Fairliar 쇼핑몰 반응형 퍼블리싱'],
@@ -302,7 +313,7 @@ const ITEMS_PER_PAGE = 6
 const Project = () => {
   const [visible, setVisible] = useState(ITEMS_PER_PAGE)
   // const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null)
-  
+
   const visibleItems = PROJECTS.slice(0, visible)
   const hasMore = visible < PROJECTS.length
 
@@ -311,13 +322,13 @@ const Project = () => {
   }
 
   const handleProjectClick = (project: ProjectItem) => {
-  if (project.detailLink) {
-    window.open(project.detailLink, '_blank', 'noopener,noreferrer')
-    return
-  }
+    if (project.detailLink) {
+      window.open(project.detailLink, '_blank', 'noopener,noreferrer')
+      return
+    }
 
-  // setSelectedProject(project)
-}
+    // setSelectedProject(project)
+  }
 
   return (
     <section className="mx-auto w-full max-w-[1000px] space-y-10">

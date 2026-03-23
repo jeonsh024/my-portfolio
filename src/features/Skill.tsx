@@ -29,12 +29,7 @@ const SKILLS: Record<TabKey, string[]> = {
     'Sass',
     'Tailwind CSS',
   ],
-  '환경 및 배포': [
-    'GitHub, GitHub Actions',
-    'Firebase',
-    'Vite',
-    'pnpm',
-  ],
+  '환경 및 배포': ['GitHub, GitHub Actions', 'Firebase', 'Vite', 'pnpm'],
   디자인: ['Photoshop', 'XD', 'Figma', 'Sketch', 'Zeplin'],
 }
 
@@ -47,7 +42,7 @@ const SKILL_ICON_SRC_MAP: Record<string, string> = {
   TypeScript: '/assets/images/skill/ts-icon.png',
   'TanStack Query': '/assets/images/skill/tanstack-query-icon.png',
   Zustand: '/assets/images/skill/zustand-icon.svg',
-  Jest: '/assets/images/skill/Jest-icon.svg',
+  Jest: '/assets/images/skill/jest-icon.svg',
   'React Hook Form': '/assets/images/skill/react-hook-form-icon.png',
   Sass: '/assets/images/skill/sass-icon.png',
   'Tailwind CSS': '/assets/images/skill/tailwind-icon.svg',
@@ -135,7 +130,7 @@ const Skill = () => {
         })}
       </div>
 
-      <ul className="mx-auto w-100 max-w-[480px] flex flex-wrap gap-3 justify-center rounded-[20px] border border-white/10 bg-white/5 p-4 shadow-xl backdrop-blur-md sm:grid-cols-3 md:grid-cols-4 dark:border-white/5 dark:bg-white/0">
+      <ul className="mx-auto w-full max-w-[480px] flex flex-wrap gap-3 justify-center rounded-[20px] border border-white/10 bg-white/8 p-4 shadow-xl backdrop-blur-md sm:grid-cols-3 md:grid-cols-4 dark:border-white/5 dark:bg-white/0">
         {displaySkills.map((skill) => (
           <li
             key={skill}

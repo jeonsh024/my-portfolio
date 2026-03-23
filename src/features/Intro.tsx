@@ -12,7 +12,7 @@ const handleDownload = () => {
 
 const Intro = () => {
   return (
-    <div className="w-full text-center">
+    <div className="w-full text-center py-[80px]">
       <h1 className="m-auto text-[32px] font-medium leading-[1.4]">
         안녕하세요
         <br />
