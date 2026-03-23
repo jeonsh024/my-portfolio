@@ -2,9 +2,7 @@
 
 const Profile = () => {
   return (
-    <section className="w-full space-y-6">
-      <h2 className="text-xl font-semibold">교육</h2>
-
+    <section className="w-full space-y-6 max-w-[820px] mx-auto">
       <ul className="space-y-6">
         <li className="grid grid-cols-[140px_1fr] items-start gap-4">
           <div className="pt-1 text-sm font-medium text-foreground/70">
@@ -30,29 +28,31 @@ const Profile = () => {
         </li>
       </ul>
 
-      <p className="text-sm my-4">감사합니다</p>
-      <div className="grid grid-cols-3 gap-3 bg-[#eef2f7] rounded-[14px] max-w-[320px] p-[20px] mx-auto text-[16px]">
-        <p className="w-[90px] font-medium">전화번호</p>
-        <p className="col-span-2">010.9308.3154</p>
+      <div className="py-10">
+        <p className="text-sm my-4 text-center">감사합니다</p>
+        <div className="grid grid-cols-3 gap-3 bg-[#eef2f7] rounded-[14px] max-w-[320px] p-[20px] mx-auto text-[16px]">
+          <p className="w-[90px] font-medium">전화번호</p>
+          <p className="col-span-2">010.9308.3154</p>
 
-        <p className="w-[90px] font-medium">이메일</p>
-        <a
-          href="mailto:jeonsh024@gmail.com"
-          className="underline underline-offset-4 col-span-2"
-        >
-          jeonsh024@gmail.com
-        </a>
-        <p className="w-[90px] font-medium">Github</p>
-        <p className="col-span-2">
+          <p className="w-[90px] font-medium">이메일</p>
           <a
-            href="https://github.com/jeonsh024"
-            target="_blank"
-            rel="noreferrer"
-            className="underline underline-offset-4"
+            href="mailto:jeonsh024@gmail.com"
+            className="underline underline-offset-4 col-span-2"
           >
-            @jeonsh024
+            jeonsh024@gmail.com
           </a>
-        </p>
+          <p className="w-[90px] font-medium">Github</p>
+          <p className="col-span-2">
+            <a
+              href="https://github.com/jeonsh024"
+              target="_blank"
+              rel="noreferrer"
+              className="underline underline-offset-4"
+            >
+              @jeonsh024
+            </a>
+          </p>
+        </div>
       </div>
     </section>
   )
