@@ -16,7 +16,6 @@ const SKILLS: Record<TabKey, string[]> = {
     'Vue 3',
     'React Native, React.js',
     'Expo',
-    'Next.js',
     'JavaScript',
     'TypeScript',
   ],
@@ -35,7 +34,6 @@ const SKILLS: Record<TabKey, string[]> = {
 
 const SKILL_ICON_SRC_MAP: Record<string, string> = {
   'Vue 3': '/assets/images/skill/vue-icon.png',
-  'Next.js': '/assets/images/skill/nextjs-icon.svg',
   'React Native, React.js': '/assets/images/skill/react-native.png',
   Expo: '/assets/images/skill/expo-icon.svg',
   JavaScript: '/assets/images/skill/javascript-icon.svg',

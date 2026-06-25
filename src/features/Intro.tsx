@@ -6,7 +6,7 @@ import { Download } from 'lucide-react'
 const handleDownload = () => {
   const link = document.createElement('a')
   link.href = '/resume.pdf' // public 디렉토리에 파일 위치
-  link.download = '전승희_이력서_20250505.pdf'
+  link.download = '전승희_이력서_20260625.pdf'
   link.click()
 }
 
