@@ -28,7 +28,7 @@ const SKILLS: Record<TabKey, string[]> = {
     'Sass',
     'Tailwind CSS',
   ],
-  '환경 및 배포': ['GitHub, GitHub Actions', 'Firebase', 'Vite', 'pnpm'],
+  '환경 및 배포': ['GitHub, GitHub Actions', 'Firebase', 'Vite', 'Docker', 'Sentry', 'pnpm'],
   디자인: ['Photoshop', 'XD', 'Figma', 'Sketch', 'Zeplin'],
 }
 
