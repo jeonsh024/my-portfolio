@@ -28,7 +28,14 @@ const SKILLS: Record<TabKey, string[]> = {
     'Sass',
     'Tailwind CSS',
   ],
-  '환경 및 배포': ['GitHub, GitHub Actions', 'Firebase', 'Vite', 'Docker', 'Sentry', 'pnpm'],
+  '환경 및 배포': [
+    'GitHub, GitHub Actions',
+    'Firebase',
+    'Vite',
+    'Docker',
+    'Sentry',
+    'pnpm',
+  ],
   디자인: ['Photoshop', 'XD', 'Figma', 'Sketch', 'Zeplin'],
 }
 
@@ -55,6 +62,8 @@ const SKILL_ICON_SRC_MAP: Record<string, string> = {
   pnpm: '/assets/images/skill/pnpm-icon.svg',
   Playwright: '/assets/images/skill/playwright-icon.png',
   Yarn: '/assets/images/skill/yarn-icon.svg',
+  Sentry: '/assets/images/skill/sentry-icon.svg',
+  Docker: '/assets/images/skill/docker-icon.png',
 }
 
 export function getSkillInitials(skill: string) {
