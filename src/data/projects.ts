@@ -1,365 +1,75 @@
-import type { ProjectItem } from '@/components/common/ProjectDetailDialog'
+export type FeaturedProject = {
+  id: string
+  name: string
+  period?: string
+  description: string
+  role: string
+  stack: string
+  highlights: string[]
+  image?: { src: string; alt: string; position?: string }
+  note?: string
+}
 
-export const PROJECTS: ProjectItem[] = [
+export const FEATURED_PROJECTS: FeaturedProject[] = [
   {
-    id: 'ai-inspection-2026',
-    title: '배송사진 AI 검수 시스템 신규 구축 (React 18)',
-    subTitle:
-      '배송 완료 사진 전수 수작업 검수를 AI 자동 채점 후 예외 건만 확인하는 구조로 전환하는 도구를 기획·설계 주도',
-    period: '2026.05 - 2026.06',
-    summary: [
-      '배송 완료 사진 전수 수작업 검수를 AI 자동 채점 후 예외 건만 확인하는 구조로 전환하는 도구를 기획·설계 주도',
-      'React 18 + Vite + TypeScript 기반 검수 대시보드 및 정합성 분석 화면 개발 (TanStack Query·Zustand 상태관리, Tailwind)',
-      'Gemini 프롬프트 설계 및 체크리스트 룰 엔진(적재위치·냉장냉동·외부적재) 기획, 오판 보정 로직 정의',
-      'FastAPI 백엔드, Docker 배포 등 백엔드·인프라까지 직접 구성해 프론트~배포 전 구간 단독 구축',
+    id: 'mfc-mobile',
+    name: 'MFC Mobile',
+    period: '2025.11 — 2026.03',
+    description:
+      '기존 Vue 기반 현장 운영 앱을 React Native와 Expo 기반의 모바일 제품으로 전환했습니다.',
+    role: 'Frontend development · UI design 100%',
+    stack: 'React Native · Expo · Zustand · TanStack Query · Axios',
+    highlights: [
+      '입고·피킹·CS·회수·출퇴근·배송 업무 흐름을 모바일 환경에 맞게 구현',
+      '카메라와 Bluetooth scanner를 함께 지원하고 haptic·sound feedback 적용',
+      'Zustand persist/partialize와 TanStack Query로 로컬·서버 상태 분리',
+      'Fold4 카메라 초기화 문제를 JS 레벨 재초기화로 복구하고 기존 EAS Update 경로로 배포',
     ],
-    skills: [
-      'React 18',
-      'Vite',
-      'TypeScript',
-      'TanStack Query',
-      'Zustand',
-      'Tailwind CSS',
-      'FastAPI',
-      'Docker',
-    ],
-    detailType: 'CONTENTS',
+    image: {
+      src: '/captures/nowhero-app/스크린샷 2026-08-31 오후 4.00.07.png',
+      alt: 'MFC Mobile 상품 입고 검수 화면',
+      position: '50% 18%',
+    },
   },
   {
-    id: 'app2-perf-2026',
-    title: '앱 2.0 성능 최적화 — 부팅 번들 88% 경량화',
-    subTitle:
-      '번들 분석으로 초기 로딩 병목을 진단하고 최적화 주도, 부팅 JS 7.5MB → 874KB (88% 감소)',
-    period: '2026.04 - 2026.06',
-    summary: [
-      '번들 분석으로 초기 로딩 병목을 진단하고 최적화 주도, 부팅 JS 7.5MB → 874KB (88% 감소, gzip 기준 82% 감소)',
-      '아이콘 라이브러리(6,000+개) 동적 import 전환, HEIC 변환용 WASM 모듈(~2.9MB) 청크 분리, 데이트피커 비동기 등록으로 boot 번들 경량화 핵심 기여',
-      'vendor manual chunk 분리 설계로 전체 번들 19% 감소, 이미지·폰트 최적화로 에셋 67% 감소',
-      '인라인 연산의 computed 전환, v-for :key 누락 21건 일괄 수정으로 리스트 재렌더링 안정화',
-      '간편결제 입력 화면의 터치 반응 지연 개선 및 시각 피드백 추가로 결제 플로우 UX 개선',
+    id: 'orderhero',
+    name: 'OrderHero',
+    description:
+      'Customer Web과 Admin을 포함한 물류·커머스 서비스를 장기간 개발하고 운영했습니다.',
+    role: 'Frontend development · Product maintenance',
+    stack: 'Vue 3 · TypeScript · TanStack Vue Query · Pinia · Vuetify',
+    highlights: [
+      '주문·결제·취소·반품 등 전자상거래 흐름과 다수의 운영 도메인 구현',
+      'Query lifecycle과 cache를 관리하고 Pinia를 역할에 따라 분리',
+      '다이나믹 검색·커스텀 셀렉트·공통 오류 처리 등 재사용 UI 설계',
+      'Playwright E2E와 Vitest/Jest 기반 테스트로 주요 사용자 흐름 검증',
     ],
-    skills: ['Vue 3', 'TypeScript', 'Vite'],
-    detailType: 'CONTENTS',
+    image: {
+      src: '/captures/orderhero-app/00-main.png',
+      alt: 'OrderHero 고객용 모바일 웹 메인 화면',
+      position: '50% 8%',
+    },
   },
   {
-    id: 'mfc-rn-solo-2026',
-    title: '나우히어로(MFC) 모바일 앱 단독 개발·출시·운영',
-    subTitle:
-      'React Native · Expo 기반 물류 업무용 모바일 앱을 설계부터 iOS/Android 정식 출시까지 단독 수행',
-    period: '2026.03 - 2026.06',
-    summary: [
-      '물류 업무용(입고·피킹·배송·회수·CS·출퇴근) 모바일 앱을 설계부터 iOS/Android 정식 출시까지 단독 수행, 스토어 심사 대응(권한 정리·개인정보처리방침) 포함',
-      'Zustand·TanStack Query 기반 상태 관리 및 서버 데이터 흐름 구조화',
-      'EAS Build/Update 기반 CI/CD 구축으로 OTA 무중단 배포 체계화',
-      'Sentry + Crashlytics 크래시 모니터링, Firebase Remote Config 강제 업데이트(환경별 키 분리) 도입으로 운영 안정화 체계 구축',
-      'expo-camera → vision-camera 마이그레이션으로 삼성 기기 검은화면 이슈 해결',
+    id: 'delivery-photo-inspection',
+    name: 'Delivery Photo Inspection',
+    description:
+      '전수 수작업 검수를 AI 1차 판정과 운영자 최종 판단으로 나눈 내부 검수 도구입니다.',
+    role: 'Product design · Frontend · AI-assisted implementation',
+    stack: 'React · React Query · Zustand · FastAPI · PostgreSQL',
+    highlights: [
+      'CS 등록 → 사진 수집 → AI 1차 검수 → 운영자 확정의 human-in-the-loop 설계',
+      '검수 대시보드·정합성 분석·결정 저장을 하나의 운영 도구로 통합',
+      'Grafana data query, CS API proxy, image hash 중복 감지 구성',
+      'AI/LLM을 활용해 내부 도구의 Frontend와 Backend를 구현하고 Docker Compose로 배포',
     ],
-    skills: [
-      'React Native',
-      'Expo',
-      'TypeScript',
-      'Zustand',
-      'TanStack Query',
-      'EAS Build',
-      'EAS Update',
-      'Sentry',
-      'Firebase',
-      'CI/CD',
-    ],
-    detailType: 'CONTENTS',
+    note: '내부 운영 정보 보호를 위해 실제 화면은 공개하지 않습니다.',
   },
-  {
-    id: 'app2-quality-2026',
-    title: '앱 2.0 품질 체계 및 공통 모듈 구축',
-    subTitle:
-      'Playwright E2E · Jest Unit Test 도입 및 공통 에러 핸들러 설계로 품질 검증 체계 확립',
-    period: '2026.03 - 2026.04',
-    summary: [
-      'Playwright 기반 E2E 테스트 도입: 인증·검색·장바구니·주문/결제·주문취소 등 핵심 사용자 플로우 시나리오 설계, 재시도·폴백 전략으로 테스트 안정성 확보',
-      'Jest 기반 유틸 함수·컴포넌트 단위 테스트로 비즈니스 로직 검증',
-      '백엔드 응답 envelope 전환에 대응하는 공통 에러 핸들러(useMutationWithHandler) 설계, 어드민 전체 mutation 일괄 마이그레이션',
-    ],
-    skills: [
-      'Vue 3',
-      'TypeScript',
-      'Playwright',
-      'Jest',
-      'TanStack Query',
-    ],
-    detailType: 'CONTENTS',
-  },
-  {
-    id: 'mfc-rn-2025-11',
-    title: 'MFC 모바일 React Native 개발 및 앱 출시',
-    subTitle:
-      'React Native · Expo 기반으로 물류 업무용 모바일 앱 설계 및 개발, CI/CD 구축과 앱 출시',
-    period: '2025.11 - 2026.03',
-    summary: [
-      'React Native · Expo 기반으로 물류 업무용 모바일 앱 설계 및 개발',
-      '입고, 피킹, CS, 회수, 출퇴근, 배송 등 도메인 기능을 모바일 UX에 맞게 구현',
-      'Zustand, TanStack Query, Axios 기반으로 상태 관리 및 서버 데이터 흐름 구조화',
-      'EAS Build/Update 기반 CI/CD 구축으로 OTA 무중단 배포 체계화, iOS/Android 정식 출시 및 운영',
-      'Sentry/Crashlytics 도입으로 프로덕션 크래시 모니터링 체계 구축',
-    ],
-    skills: [
-      'React Native',
-      'Expo',
-      'TypeScript',
-      'Zustand',
-      'TanStack Query',
-      'Axios',
-      'EAS Build',
-      'EAS Update',
-      'CI/CD',
-      'GitHub Actions',
-      'Sentry',
-      'Firebase',
-    ],
-    detailType: 'CONTENTS',
-  },
-  {
-    id: 'app2-test-2025',
-    title: '앱 2.0 테스트 코드 구축',
-    subTitle:
-      '앱 2.0 주요 사용자 플로우 대상 Playwright E2E 및 Jest Unit Test 설계·작성',
-    period: '2025.09 - 2025.12',
-    summary: [
-      '앱 2.0 주요 사용자 플로우를 대상으로 Playwright 기반 E2E 테스트 시나리오를 설계 및 작성',
-      '인증, 검색, 장바구니, 주문/결제, 마이페이지, 즐겨찾기, 주문 취소 등 핵심 기능에 대한 통합 테스트 구성',
-      '모달, 토스트, 리다이렉트, 네트워크 지연 등 다양한 예외 상황을 고려해 헬퍼·재시도·폴백 전략으로 테스트 안정성 강화',
-      'Jest 기반 유틸 함수 및 수량 조절 컴포넌트 Unit Test를 작성해 비즈니스 로직과 UI 동작 검증',
-    ],
-    skills: ['Playwright', 'Jest', 'Vue 3', 'TypeScript'],
-    detailType: 'CONTENTS',
-  },
-  {
-    id: 'tms-saas-2025-09',
-    title: 'TMS (SaaS) · MFC 모바일',
-    subTitle:
-      'SaaS 형태의 TMS 프론트엔드 초기 구조 설계 및 MFC 모바일 신규 기능 개발',
-    period: '2025.09 - 2025.10',
-    summary: [
-      'SaaS 형태의 TMS 프론트엔드 초기 구조 설계 및 개발',
-      'Vue 3 · TypeScript 기반으로 MFC 모바일 신규 기능 및 개선 기능 개발',
-      '도메인별 화면 구성과 API 연동을 통해 운영 업무 플로우 반영',
-    ],
-    skills: ['Vue 3', 'TypeScript', 'TanStack Query', 'Sass'],
-    detailType: 'CONTENTS',
-  },
-  {
-    id: 'new-features-2025',
-    title: '신규 기능 개발 및 운영 대응',
-    subTitle:
-      '앱 2.0 · 어드민 2.0 · MFC 모바일 신규 기능 개발 및 운영 대응',
-    period: '2025.01 - 2025.12',
-    summary: [
-      '[앱 2.0] Vue 3, TypeScript, vue-query 기반 프론트엔드 개발',
-      '[앱 2.0] 즐겨찾기 \'다나와\' 방식 그룹핑 기능 개발',
-      '[앱 2.0] 즐겨찾기 페이지네이션 및 무한스크롤 개선을 통한 성능 리팩토링',
-      '[어드민 2.0] 유통사 상품 단가 업데이트 기능 개발',
-      '[어드민 2.0] 품절 상품 자동 알림톡 발송 기능 프론트 개발',
-      '[어드민 2.0] 거래명세표 프린트 로직 개선',
-      '[어드민 & MFC 모바일 2.0] 회수 처리 기능 신규 개발 및 각 시스템 통합 적용',
-    ],
-    skills: ['Vue 3', 'TypeScript', 'TanStack Query', 'Sass'],
-    detailType: 'CONTENTS',
-  },
-  {
-    id: 'enhancement-2024',
-    title: '기능 고도화 및 안정화 작업',
-    subTitle:
-      '어드민 2.0 · 앱 2.0 · MFC 모바일 기능 고도화, UX 개선 및 시스템 문서화',
-    period: '2024.07 - 2024.12',
-    summary: [
-      '[어드민 2.0] 발급 쿠폰 관리, 파트너 코드등록, 거래명세표 프린트 리팩토링',
-      '[어드민 2.0] 상품단가 업데이트, 상세권한 처리, 주문 변경 이력 모달 등 기능 확장',
-      '[어드민 2.0] 데이터 테이블 프리셋 리팩토링 및 접근 권한 처리 고도화',
-      '[앱 2.0] 즐겨찾기 개선, 장바구니 UX 개선, 주문조회 상세, 간편결제 등 기능 리팩토링',
-      '[앱 2.0] 배너/이미지 최적화, 조건부 버튼 노출 등 마이크로 UX 대응',
-      '[MFC 모바일] 휴대폰번호/매장정보 추가, 오류 수정 및 코드 정비',
-      '[문서화] 리뉴얼 시스템 전체 구조 및 컴포넌트 기반 메뉴얼 정리',
-    ],
-    skills: ['Vue 3', 'TypeScript', 'TanStack Query', 'Sass', 'Vuetify'],
-    detailType: 'CONTENTS',
-  },
-  {
-    id: 'renewal-2023',
-    title: '어드민 2.0 · 앱 2.0 전면 리뉴얼 및 기능 고도화 (Vue 3)',
-    subTitle:
-      'Vue 3 기반 어드민·앱·MFC 모바일 프론트 아키텍처 설계 및 전면 리뉴얼 개발',
-    period: '2023.12 - 2024.07',
-    summary: [
-      '[어드민 2.0] Vue 3, TypeScript, vue-query 기반의 프론트 아키텍처 설계 및 전면 리뉴얼 개발',
-      '[어드민 2.0] 공통 컴포넌트: 다이나믹 서치, 커스텀 셀렉트, 글로벌 confirm 모달 등 커스텀 공통 모듈 개발',
-      '[어드민 2.0] 도메인별 페이지 설계 및 상세권한, 콘텐츠 관리, 키밸류 설정 등 기능 구현',
-      '[어드민 2.0] 메인 콘텐츠 관리 기능 개발 (카테고리/노출 설정/상품선택 포함)',
-      '[어드민 2.0] 유통사 상품관리, 주문관리, 결제로그 등 도메인 페이지 설계 및 리팩토링',
-      '[앱 2.0] Vue 3, TypeScript, vue-query 기반의 프론트 아키텍처 설계 및 전면 리뉴얼 개발',
-      '[앱 2.0] Vuetify 커스터마이징 및 테마 시스템 설계',
-      '[앱 2.0] 메인, 마이페이지, 장바구니, 배송조회 등 UI/UX 설계 및 개발',
-      '[앱 2.0] 주문/취소/반품 등 전자상거래 플로우 고도화 및 다수 기능 개발',
-      '[앱 2.0] 즐겨찾기, 배너 링크, 무센터매칭 등 신규 화면 개발',
-      '[MFC 모바일 2.0] Vue 3, TypeScript 기반의 프론트엔드 개발',
-      '[MFC 모바일 2.0] 2.0 API 연동, 배송순번 변경, 스캐너 UI, 지정일 운행 등 물류 기능 대응',
-      '[MFC 모바일 2.0] API 중복 제거 및 구조 최적화',
-      '[MFC 모바일 2.0] MFC 모바일 사용자 가이드 및 운영 문서 작성',
-    ],
-    skills: ['Vue 3', 'TypeScript', 'TanStack Query', 'Vuetify', 'Sass'],
-    detailType: 'CONTENTS',
-  },
-  {
-    id: 'franchise-2024',
-    title: '프렌차이즈 웹 디자인 퍼블리싱',
-    subTitle: '프랜차이즈 웹 디자인 퍼블리싱',
-    period: '2024.03',
-    summary: ['프랜차이즈 웹 디자인 퍼블리싱'],
-    skills: ['HTML/CSS', 'JavaScript'],
-    detailType: 'CONTENTS',
-  },
-  {
-    id: 'wms-2023',
-    title: 'WMS 프론트 개발',
-    subTitle: 'Vue 3 기반 WMS 전체 프론트 구조 설계 및 커스텀 컴포넌트 개발',
-    period: '2023.09 - 2023.11',
-    summary: [
-      'Vue 3, TypeScript 기반 전체 프론트 구조 및 기능 설계',
-      '상품 등록 모달, 멀티 셀렉트 등 커스텀 컴포넌트 개발',
-      '템플릿 구조 설계 및 공통 UI 퍼블리싱',
-    ],
-    skills: ['Vue 3', 'TypeScript', 'Sass', 'Vuetify'],
-    detailType: 'CONTENTS',
-  },
-  {
-    id: 'legacy-maintenance-2023',
-    title: '구 시스템 유지보수',
-    subTitle: '구 어드민·앱 기능 개선 및 시스템 유지보수',
-    period: '2023.06 - 2023.12',
-    summary: [
-      '구 어드민/구 앱 유지보수: 검수확인서, 상품 CS, 정산페이지, 상세 검색 등 개선',
-      '신 어드민 모듈 문서 페이지 퍼블리싱 및 기능별 도큐먼트 정리',
-    ],
-    skills: ['HTML/CSS', 'Sass', 'JavaScript', 'TypeScript'],
-    detailType: 'CONTENTS',
-  },
-  {
-    id: 'rnd-senior',
-    title: '[R&D] 시니어 영양급식',
-    subTitle:
-      '소규모 시니어 시설을 위한 식단 추천 시스템 개발',
-    period: '2023.08 - 2023.09',
-    summary: [
-      '소규모 시니어 시설 운영하여 영양사가 없거나 부족한 곳의 식단을 빠르게 추천해주는 시스템 개발',
-    ],
-    skills: ['HTML/CSS', 'Sass', 'JavaScript'],
-    detailType: 'LINK',
-    detailLink:
-      'http://sn-alb-1238897415.ap-northeast-2.elb.amazonaws.com/NutritionMain.php',
-  },
-  {
-    id: 'logistics-init-2023',
-    title: '물류 시스템 초기 구축 및 운영',
-    subTitle:
-      'Vue.js, TypeScript 기반 물류 시스템 초기 프론트엔드 구축 및 UI/UX 디자인',
-    period: '2023.01 - 2023.03',
-    summary: [
-      'Vue.js, TypeScript 기반의 프론트엔드 개발',
-      '피킹리스트, 다스 등 기능 기획 및 UI/UX 디자인',
-      '모바일 화면 전체 퍼블리싱 및 레이아웃 구성',
-      '배송탭, 누락 대응 프로세스 등 물류 기능 시나리오 구현',
-      'MFC 모바일 가이드 제작',
-    ],
-    skills: ['Vue 3', 'TypeScript', 'Sass'],
-    detailType: 'CONTENTS',
-  },
-  {
-    id: 'new-admin-2022',
-    title: '신어드민 구축 및 유지보수',
-    subTitle: '신규 어드민 템플릿·레이아웃 설계 및 주요 페이지 반응형 개발',
-    period: '2022.08 - 2023.05',
-    summary: [
-      '초기 템플릿 및 레이아웃 퍼블리싱',
-      '식당관리, 주문관리, 쿠폰 히스토리, 시스템 권한 등 페이지 단위 UI 설계 및 반응형 개발',
-      '피킹리스트, 박스관리 등 MFC 대시보드 퍼블리싱',
-    ],
-    skills: ['HTML/CSS', 'JavaScript', 'TypeScript', 'Sass'],
-    detailType: 'CONTENTS',
-  },
-  {
-    id: 'official-2022',
-    title: '공식 웹사이트 · 앱 · 어드민 유지보수',
-    subTitle:
-      '오더히어로 공식 웹사이트 리뉴얼 및 앱·어드민 주요 페이지 전면 리뉴얼',
-    period: '2022.06 - 2023.05',
-    summary: [
-      '[오더히어로 공식 웹사이트] 디자인 리뉴얼 및 퍼블리싱',
-      '[모바일 앱] 카테고리, 메인, 즐겨찾기, 파트너관, 필터 등 주요 페이지 전면 리뉴얼 퍼블리싱',
-      '[모바일 앱] alert, modal, 회원가입 등 핵심 컴포넌트 스타일 리팩토링',
-      '[모바일 앱] 마이페이지 개편 및 수익화 페이지 구성 (약관, 포인트샵, 게이지 등)',
-      '[모바일 앱] FAQ, 박스 프로세스 등 신규 페이지 설계 및 구현',
-      '[구 어드민] 검수확인서 디자인 리뉴얼 및 검색 UI 개선',
-      '[구 어드민] 유통사 상품 관리, 매입처 관리, 가격 수정 등 요청 기반 페이지 다수 퍼블리싱',
-    ],
-    skills: ['HTML/CSS', 'JavaScript'],
-    detailType: 'CONTENTS',
-  },
-  {
-    id: 'official-2021',
-    title: 'Klanze 웹 퍼블리싱',
-    subTitle: 'Klanze 마이크로 홈페이지 웹 퍼블리싱',
-    period: '2021.11 - 2021.12',
-    summary: ['Klanze 마이크로 홈페이지 웹 퍼블리싱'],
-    skills: ['HTML/CSS', 'JavaScript'],
-    detailType: 'LINK',
-    detailLink: 'https://www.klenze.co.kr/',
-  },
-  {
-    id: 'product3-2021',
-    title: 'KCC실리콘 웹 퍼블리싱',
-    subTitle: 'KCC실리콘 공식 웹사이트 리뉴얼 퍼블리싱',
-    period: '2021.06 - 2021.11',
-    summary: [
-      'KCC실리콘 홈페이지·기술자료 검색 페이지 등 기업 웹사이트 반응형 퍼블리싱 및 유지보수',
-    ],
-    skills: ['HTML/CSS', 'JavaScript'],
-    detailType: 'LINK',
-    detailLink: 'https://www.kccsilicone.com/main.do',
-  },
-  {
-    id: 'vrmaker-2019',
-    title: 'VRMaker 서비스 리뉴얼 및 운영',
-    subTitle:
-      'VRMaker Client/CMS 페이지 분리 구조 반응형 퍼블리싱, 네이버 SEO 및 GA 도입·운영',
-    period: '2019.01 - 2020.01',
-    summary: [
-      'VRMaker 서비스 리뉴얼: Client/CMS 페이지 분리 구조 반응형 퍼블리싱',
-      '네이버 SEO 및 GA 도입·운영',
-    ],
-    skills: ['HTML/CSS', 'JavaScript', 'SEO', 'Google Analytics'],
-    detailType: 'CONTENTS',
-  },
-  {
-    id: 'product2-2019',
-    title: 'B2B·공공 프로젝트 퍼블리싱',
-    subTitle:
-      '제주관광공사 Jstartup, (주)한라 VR 현장관리 시스템 등 B2B·공공 프로젝트 퍼블리싱',
-    period: '2019.01 - 2019.12',
-    summary: [
-      '제주관광공사 Jstartup 홈페이지 퍼블리싱',
-      '(주)한라 VR 현장관리 시스템 퍼블리싱 및 유지관리',
-    ],
-    skills: ['HTML/CSS', 'JavaScript'],
-    detailType: 'CONTENTS',
-  },
-  {
-    id: 'product1-2017',
-    title: 'Fairliar 골프웨어 쇼핑몰',
-    subTitle: 'Fairliar 골프웨어 쇼핑몰 웹·모바일 디자인 퍼블리싱 및 상품 페이지 운영',
-    period: '2017.07 - 2017.09',
-    summary: [
-      'Fairliar 골프웨어 쇼핑몰 웹·모바일 디자인 퍼블리싱 및 상품 페이지 운영',
-    ],
-    skills: ['HTML/CSS', 'JavaScript'],
-    detailType: 'LINK',
-    detailLink: 'https://fairliar.com/',
-  },
+]
+
+export const SELECTED_WORK = [
+  { name: 'TMS', scope: 'Admin · Mobile' },
+  { name: 'WMS', scope: 'Web' },
+  { name: 'VRMaker', scope: 'Client · CMS' },
+  { name: 'Jstartup', scope: 'Web Publishing' },
 ]

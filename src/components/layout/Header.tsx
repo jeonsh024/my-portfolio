@@ -4,66 +4,45 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 const navItems = [
-  { label: '기술', id: 'skill' },
-  { label: '경력', id: 'experience' },
-  { label: '프로젝트', id: 'project' },
-  { label: '프로필', id: 'profile' },
+  { label: 'Work', id: 'work' },
+  { label: 'Technical', id: 'technical' },
+  { label: 'Experience', id: 'experience' },
+  { label: 'Contact', id: 'contact' },
 ]
 
 const Header = () => {
-  const [activeId, setActiveId] = useState<string>('skill')
+  const [activeId, setActiveId] = useState('work')
 
   useEffect(() => {
-    const ids = navItems.map((n) => n.id)
-    const elements = ids
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => !!el)
-
-    if (elements.length === 0) return
-
+    const elements = navItems
+      .map(({ id }) => document.getElementById(id))
+      .filter((element): element is HTMLElement => Boolean(element))
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id)
-          }
-        })
+        const visible = entries.find((entry) => entry.isIntersecting)
+        if (visible) setActiveId(visible.target.id)
       },
-      {
-        // 상단 고정 헤더 높이를 고려하여 중앙 근처에 들어왔을 때 활성화
-        root: null,
-        rootMargin: '-40% 0px -50% 0px',
-        threshold: 0.1,
-      }
+      { rootMargin: '-20% 0px -70% 0px' },
     )
-
-    elements.forEach((el) => observer.observe(el))
+    elements.forEach((element) => observer.observe(element))
     return () => observer.disconnect()
   }, [])
 
   return (
-    <header className="sticky top-0 z-40 w-full">
-      <div className="mx-auto my-2 flex w-full justify-center">
-        <ul className="flex items-center gap-2 rounded-[30px] bg-secondary p-2 px-1 shadow-lg backdrop-blur-md">
-          {navItems.map(({ label, id }) => {
-            const isActive = activeId === id
-            return (
+    <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur-sm">
+      <div className="mx-auto flex h-14 max-w-[1080px] items-center justify-between px-5 sm:px-10">
+        <Link href="#top" className="text-sm font-semibold tracking-tight text-slate-950">전승희</Link>
+        <nav aria-label="주요 섹션">
+          <ul className="flex items-center gap-4 sm:gap-6">
+            {navItems.map(({ label, id }) => (
               <li key={id}>
-                <Link
-                  href={`#${id}`}
-                  aria-current={isActive ? 'page' : undefined}
-                  onClick={() => setActiveId(id)}
-                  className={[
-                    'px-4 py-2 rounded-[30px] transition-colors backdrop-blur ',
-                    isActive ? 'bg-white font-semibold' : 'bg-transparent',
-                  ].join(' ')}
-                >
+                <Link href={`#${id}`} aria-current={activeId === id ? 'location' : undefined} className={activeId === id ? 'text-xs font-semibold text-blue-600 sm:text-sm' : 'text-xs text-slate-500 transition-colors hover:text-slate-950 sm:text-sm'}>
                   {label}
                 </Link>
               </li>
-            )
-          })}
-        </ul>
+            ))}
+          </ul>
+        </nav>
       </div>
     </header>
   )

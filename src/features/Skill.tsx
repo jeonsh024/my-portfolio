@@ -1,178 +1,31 @@
-'use client'
-
-import { useMemo, useState } from 'react'
-
-type TabKey = '프론트엔드' | '라이브러리' | '환경 및 배포' | '디자인'
-
-const TABS: { key: TabKey; label: TabKey }[] = [
-  { key: '프론트엔드', label: '프론트엔드' },
-  { key: '라이브러리', label: '라이브러리' },
-  { key: '환경 및 배포', label: '환경 및 배포' },
-  { key: '디자인', label: '디자인' },
+const GROUPS = [
+  { title: 'Frontend', tech: 'Vue 3 / React / TypeScript', detail: '운영 도메인 UI, 공통 컴포넌트와 반응형 화면을 설계합니다.' },
+  { title: 'Mobile', tech: 'React Native / Expo', detail: '카메라·Bluetooth scanner 등 디바이스 기능과 앱 배포를 다룹니다.' },
+  { title: 'State & Data', tech: 'Pinia / Zustand / TanStack Query', detail: '클라이언트 상태와 서버 상태를 구분하고 query lifecycle을 관리합니다.' },
+  { title: 'Testing', tech: 'Playwright / Vitest / Jest', detail: '핵심 사용자 흐름과 비즈니스 로직을 자동화 테스트로 검증합니다.' },
+  { title: 'Production', tech: 'Axios / Auth / Error Handling / OTA', detail: '인증, 공통 오류 처리, 모니터링과 운영 배포까지 연결합니다.' },
+  { title: 'Infra & UI', tech: 'AWS / Docker Compose / Vuetify / Tailwind', detail: '제품에 필요한 배포 환경과 일관된 UI 기반을 구성합니다.' },
 ]
 
-const SKILLS: Record<TabKey, string[]> = {
-  프론트엔드: [
-    'Vue 3',
-    'React Native, React.js',
-    'Expo',
-    'JavaScript',
-    'TypeScript',
-  ],
-  라이브러리: [
-    'TanStack Query',
-    'Zustand',
-    'Jest',
-    'React Hook Form',
-    'Playwright',
-    'Sass',
-    'Tailwind CSS',
-  ],
-  '환경 및 배포': [
-    'GitHub, GitHub Actions',
-    'Firebase',
-    'Vite',
-    'Docker',
-    'Sentry',
-    'pnpm',
-  ],
-  디자인: ['Photoshop', 'XD', 'Figma', 'Sketch', 'Zeplin'],
-}
-
-const SKILL_ICON_SRC_MAP: Record<string, string> = {
-  'Vue 3': '/assets/images/skill/vue-icon.png',
-  'React Native, React.js': '/assets/images/skill/react-native.png',
-  Expo: '/assets/images/skill/expo-icon.svg',
-  JavaScript: '/assets/images/skill/javascript-icon.svg',
-  TypeScript: '/assets/images/skill/ts-icon.png',
-  'TanStack Query': '/assets/images/skill/tanstack-query-icon.png',
-  Zustand: '/assets/images/skill/zustand-icon.svg',
-  Jest: '/assets/images/skill/jest-icon.svg',
-  'React Hook Form': '/assets/images/skill/react-hook-form-icon.png',
-  Sass: '/assets/images/skill/sass-icon.png',
-  'Tailwind CSS': '/assets/images/skill/tailwind-icon.svg',
-  'GitHub, GitHub Actions': '/assets/images/skill/github-icon.svg',
-  Firebase: '/assets/images/skill/firebase-icon.svg',
-  Vite: '/assets/images/skill/vitejs-icon.svg',
-  Photoshop: '/assets/images/skill/photoshop-icon.png',
-  XD: '/assets/images/skill/xd-icon.png',
-  Figma: '/assets/images/skill/figma-icon.svg',
-  Sketch: '/assets/images/skill/sketch-icon.svg',
-  Zeplin: '/assets/images/skill/zeplin-icon.svg',
-  pnpm: '/assets/images/skill/pnpm-icon.svg',
-  Playwright: '/assets/images/skill/playwright-icon.png',
-  Yarn: '/assets/images/skill/yarn-icon.svg',
-  Sentry: '/assets/images/skill/sentry-icon.svg',
-  Docker: '/assets/images/skill/docker-icon.png',
-}
-
-export function getSkillInitials(skill: string) {
-  const parts = skill
-    .replace(/[^a-zA-Z0-9\s]/g, ' ')
-    .trim()
-    .split(/\s+/)
-    .filter(Boolean)
-
-  if (parts.length >= 2) {
-    return (parts[0][0] + parts[1][0]).toUpperCase()
-  }
-
-  return (parts[0]?.slice(0, 2) ?? '').toUpperCase()
-}
-
-export function getPlaceholderIconSrc(initials: string) {
-  const safeInitials = initials.slice(0, 2) || '?'
-
-  // SVG data URI placeholder (so even "missing icons" still render as an <img>).
-  const svg = `
-    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-      <rect x="8" y="8" width="48" height="48" rx="16" fill="#60a5fa" fill-opacity="0.18"/>
-      <text x="32" y="36" text-anchor="middle" font-family="Pretendard, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="18" font-weight="800" fill="#3b82f6">
-        ${safeInitials}
-      </text>
-    </svg>
-  `.trim()
-
-  return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`
-}
-
-const Skill = () => {
-  const [activeTab, setActiveTab] = useState<TabKey | null>(null)
-
-  const allSkills = useMemo(() => {
-    return Array.from(new Set(Object.values(SKILLS).flat()))
-  }, [])
-
-  const displaySkills = useMemo(() => {
-    if (!activeTab) return allSkills
-    return SKILLS[activeTab]
-  }, [activeTab, allSkills])
-
-  const handleTabClick = (tab: TabKey) => {
-    setActiveTab((prev) => (prev === tab ? null : tab))
-  }
-
-  return (
-    <div className="w-full flex flex-col gap-8">
-      <h4 className="text-center text-2xl font-bold tracking-tight text-primary">
-        기술 스택 및 도구
-      </h4>
-      <div className="mx-auto flex items-center justify-center rounded-[30px] bg-secondary p-1">
-        {TABS.map((tab) => {
-          const isActive = activeTab === tab.key
-          return (
-            <button
-              key={tab.key}
-              type="button"
-              onClick={() => handleTabClick(tab.key)}
-              className={[
-                'px-4 py-2 rounded-[20px] border transition-all border-0',
-                isActive ? 'bg-white font-semibold' : 'bg-transparent',
-              ].join(' ')}
-              aria-pressed={isActive}
-            >
-              {tab.label}
-            </button>
-          )
-        })}
+const Skill = () => (
+  <section aria-labelledby="technical-title">
+    <div className="mb-8 grid gap-3 sm:grid-cols-[220px_1fr]">
+      <div>
+        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-blue-600">Technical Experience</p>
+        <h2 id="technical-title" className="text-2xl font-semibold tracking-tight text-slate-950">기술을 사용한 맥락</h2>
       </div>
-
-      <ul className="mx-auto w-full max-w-[480px] flex flex-wrap gap-3 justify-center rounded-[20px] border border-white/10 bg-white/8 p-4 shadow-xl backdrop-blur-md sm:grid-cols-3 md:grid-cols-4 dark:border-white/5 dark:bg-white/0">
-        {displaySkills.map((skill) => (
-          <li
-            key={skill}
-            title={skill}
-            className="h-12 w-12 group relative flex items-center justify-center rounded-[10px] border border-white/20 bg-white/10 text-center shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-white/5"
-          >
-            <span
-              role="tooltip"
-              className="pointer-events-none absolute left-1/2 top-0 z-10 -translate-x-1/2 -translate-y-2 whitespace-nowrap rounded-md bg-foreground/90 px-2 py-1 text-[11px] font-medium text-background opacity-0 shadow-sm transition-opacity group-hover:opacity-100 dark:bg-foreground/95"
-            >
-              {skill}
-            </span>
-
-            {SKILL_ICON_SRC_MAP[skill] ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={SKILL_ICON_SRC_MAP[skill]}
-                alt={skill}
-                className="h-10 w-10 object-contain"
-                loading="lazy"
-              />
-            ) : (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={getPlaceholderIconSrc(getSkillInitials(skill))}
-                alt={skill}
-                className="h-10 w-10 object-contain"
-                loading="lazy"
-              />
-            )}
-          </li>
-        ))}
-      </ul>
+      <p className="max-w-[560px] text-sm leading-6 text-slate-500">기술 이름보다 실제 제품에서 담당한 범위와 사용 목적을 설명합니다.</p>
     </div>
-  )
-}
+    <dl className="grid border-t border-slate-950 sm:grid-cols-2">
+      {GROUPS.map((group) => (
+        <div key={group.title} className="border-b border-slate-200 py-6 sm:odd:pr-8 sm:even:border-l sm:even:pl-8">
+          <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-400">{group.title}</dt>
+          <dd className="mt-2 text-base font-semibold text-slate-950">{group.tech}</dd>
+          <dd className="mt-2 text-sm leading-6 text-slate-600">{group.detail}</dd>
+        </div>
+      ))}
+    </dl>
+  </section>
+)
 
 export default Skill

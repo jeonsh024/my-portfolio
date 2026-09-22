@@ -1,65 +1,17 @@
-'use client'
+import { ArrowUpRight, Mail } from 'lucide-react'
 
-const Profile = () => {
-  return (
-    <section className="w-full space-y-6 max-w-[580px] mx-auto">
-      <h2 className="text-center text-2xl font-bold tracking-tight text-foreground">
-        교육
-      </h2>
-
-      <ul className="space-y-6">
-        <li className="grid grid-cols-[140px_1fr] items-start gap-4">
-          <div className="pt-1 text-sm font-medium text-foreground/70">
-            2010.02 - 2015.02
-          </div>
-          <div className="space-y-1">
-            <h3 className="text-base font-semibold">서울종합예술학교</h3>
-            <p className="text-sm text-foreground/80">
-              패션디자인학과 학사졸업
-            </p>
-          </div>
-        </li>
-        <li className="grid grid-cols-[140px_1fr] items-start gap-4">
-          <div className="pt-1 text-sm font-medium text-foreground/70">
-            수료
-          </div>
-          <div className="space-y-1">
-            <h3 className="text-base font-semibold">더조은컴퓨터아카데미</h3>
-            <p className="text-sm text-foreground/80">
-              UI/UX 웹디자인(웹퍼블리셔) 과정 수료
-            </p>
-          </div>
-        </li>
-      </ul>
-
-      <div className="pt-[120px] pb-[100px]">
-        <p className="text-[24px] font-semibold my-4 text-center">감사합니다</p>
-        <div className="grid grid-cols-3 gap-3 bg-[#eef2f7] rounded-[14px] max-w-[320px] p-[20px] mx-auto text-[16px]">
-          <p className="w-[90px] font-medium">전화번호</p>
-          <p className="col-span-2">010.9308.3154</p>
-
-          <p className="w-[90px] font-medium">이메일</p>
-          <a
-            href="mailto:jeonsh024@gmail.com"
-            className="underline underline-offset-4 col-span-2"
-          >
-            jeonsh024@gmail.com
-          </a>
-          <p className="w-[90px] font-medium">Github</p>
-          <p className="col-span-2">
-            <a
-              href="https://github.com/jeonsh024"
-              target="_blank"
-              rel="noreferrer"
-              className="underline underline-offset-4"
-            >
-              @jeonsh024
-            </a>
-          </p>
-        </div>
-      </div>
-    </section>
-  )
-}
+const Profile = () => (
+  <section className="border-t border-slate-950 py-12 sm:grid sm:grid-cols-[1fr_auto] sm:items-end sm:gap-10 sm:py-16" aria-labelledby="contact-title">
+    <div>
+      <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-blue-600">Contact</p>
+      <h2 id="contact-title" className="max-w-[560px] text-2xl font-semibold leading-9 tracking-tight text-slate-950">운영 가능한 제품을 함께 만들 프론트엔드 개발자를 찾고 계신가요?</h2>
+      <p className="mt-4 text-sm text-slate-500">서울 · Frontend Developer 전승희</p>
+    </div>
+    <div className="mt-8 flex flex-col items-start gap-3 text-sm sm:mt-0 sm:items-end">
+      <a href="mailto:jeonsh024@gmail.com" className="inline-flex items-center gap-2 font-medium text-slate-800 hover:text-blue-600"><Mail className="size-4" />jeonsh024@gmail.com</a>
+      <a href="https://github.com/jeonsh024" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-slate-500 hover:text-slate-950">github.com/jeonsh024 <ArrowUpRight className="size-3" /></a>
+    </div>
+  </section>
+)
 
 export default Profile
