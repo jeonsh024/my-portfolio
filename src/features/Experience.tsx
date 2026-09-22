@@ -37,8 +37,13 @@ const EXPERIENCES: ExperienceItem[] = [
       'Sass',
       'Tailwind',
       'Docker',
+      'Vitest',
+      'oxlint',
     ],
     details: [
+      '레거시 약 2.2만 줄 제거 및 공통화, Playwright E2E 병렬화로 테스트 실행 시간 44분 → 2.6분 단축',
+      'Vite 8 · Node.js 24 · Vitest 전환으로 프로덕션 빌드 시간 67% 단축, 테스트 958건 통과 및 보안 취약점 감소',
+      '어드민 린트 환경을 oxlint 기반으로 복구 — 1,068개 파일 검사 98배 가속, 문제 286건 탐지 및 정책 표준화',
       '배송사진 AI 검수 시스템 기획·설계 주도 — React 18 + Vite 대시보드 개발, Gemini 프롬프트 설계, FastAPI/Docker 풀스택 단독 구축',
       '앱 2.0 부팅 번들 88% 경량화(7.5MB → 874KB) — 번들 분석, 동적 import, WASM 청크 분리, vendor 분리 설계',
       'React Native · Expo 기반 물류 모바일 앱 설계부터 iOS/Android 출시·운영까지 단독 전담',

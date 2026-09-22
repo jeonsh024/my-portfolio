@@ -23,6 +23,7 @@ const SKILLS: Record<TabKey, string[]> = {
     'TanStack Query',
     'Zustand',
     'Jest',
+    'Vitest',
     'React Hook Form',
     'Playwright',
     'Sass',
@@ -35,6 +36,8 @@ const SKILLS: Record<TabKey, string[]> = {
     'Docker',
     'Sentry',
     'pnpm',
+    'Node.js',
+    'oxlint',
   ],
   디자인: ['Photoshop', 'XD', 'Figma', 'Sketch', 'Zeplin'],
 }

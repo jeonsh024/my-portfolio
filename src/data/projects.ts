@@ -2,11 +2,59 @@ import type { ProjectItem } from '@/components/common/ProjectDetailDialog'
 
 export const PROJECTS: ProjectItem[] = [
   {
+    id: 'service-quality-legacy-2026',
+    title: '서비스 품질·레거시 개선',
+    subTitle:
+      '약 2.2만 줄의 레거시 코드를 제거하고 E2E 테스트를 병렬화해 실행 시간을 44분에서 2.6분으로 단축',
+    period: '2026.08 - 2026.09',
+    summary: [
+      '어드민 미사용 코드·컴포넌트·의존성 정리로 약 2.2만 줄의 레거시 코드 제거, 중복 모달·컴포넌트 공통화',
+      '고객 주문 앱 디자인 토큰 표준화 및 CI 검사를 적용해 UI 스타일 관리 체계 개선',
+      'Playwright E2E 병렬화로 전체 테스트 실행 시간 44분 → 2.6분 단축',
+      '검색 자동완성·초성검색, CS 페널티, 상품 이미지 등 주문·운영 기능 개선',
+      'React Native MFC 앱의 웹 대응 및 Galaxy/Fold 등 실제 현장 기기별 UI·인증 안정성 개선',
+    ],
+    skills: ['Vue 3', 'TypeScript', 'React Native', 'Playwright', 'CI/CD'],
+    detailType: 'CONTENTS',
+  },
+  {
+    id: 'frontend-toolchain-2026',
+    title: '프론트엔드 빌드·테스트·린트 툴체인 현대화',
+    subTitle:
+      'Vite 8·Node.js 24·Vitest로 전환해 빌드 시간을 67% 단축하고 테스트 안정성과 보안을 강화',
+    period: '2026.08',
+    summary: [
+      'Vite 6 → 8(Rolldown), Node.js 20 → 24 업그레이드 및 Jest → Vitest 전환을 주도해 프로덕션 빌드 시간 67% 단축(9.84초 → 3.22초)',
+      '57개 테스트 스펙을 Vitest로 마이그레이션하고, 유닛 테스트 871건·E2E 테스트 87건 전량 통과 달성',
+      'Vue Query 4 → 5 마이그레이션 중 장바구니 회귀를 E2E로 발견하고 쿼리·뮤테이션 라이프사이클 재설계',
+      'Axios·Swiper·Firebase 등 주요 의존성 업그레이드와 Jest·Vue CLI 레거시 제거로 보안 취약점 104건 → 42건 감소',
+      'oxlint·ESLint 하이브리드 린트 체계를 설계해 Vue 템플릿 검사 범위를 유지하면서 JS/TS 검사 시간 4.41초 → 0.41초 단축',
+    ],
+    skills: ['Vite 8', 'Node.js 24', 'Vitest', 'Playwright', 'Vue Query 5', 'oxlint'],
+    detailType: 'CONTENTS',
+  },
+  {
+    id: 'admin-oxlint-2026',
+    title: '어드민 ESLint → oxlint 마이그레이션 및 린트 체계 복구',
+    subTitle:
+      '1년 이상 동작하지 않던 린트 환경을 재구축하고 1,068개 파일 검사 속도를 98배 개선',
+    period: '2026.08',
+    summary: [
+      '설정 충돌과 누락 의존성으로 1년 이상 동작하지 않던 어드민 린트 환경을 oxlint 기반으로 재구축, 문제 검출 0건 → 286건으로 복구',
+      '1,068개 파일 기준 린트 실행 시간을 7.27초 → 0.074초로 단축(98배), 개발 의존성 135개·락파일 스냅샷 175개 제거',
+      '자동 수정 결과를 프로덕션 빌드 산출물 대조·속성 테스트·정규식 차등 테스트로 검증해 회귀를 사전 차단',
+      '느슨한 타입 선언, 도달 불가능 코드, Vue prop 가려짐 등 실제 결함을 식별해 타입 오류 4건 감소',
+      '린트 기준·예외 정책·에디터 설정을 문서화해 팀 공통 개발환경으로 표준화',
+    ],
+    skills: ['oxlint', 'ESLint', 'Vue 3', 'TypeScript', 'CI/CD'],
+    detailType: 'CONTENTS',
+  },
+  {
     id: 'ai-inspection-2026',
     title: '배송사진 AI 검수 시스템 신규 구축 (React 18)',
     subTitle:
       '배송 완료 사진 전수 수작업 검수를 AI 자동 채점 후 예외 건만 확인하는 구조로 전환하는 도구를 기획·설계 주도',
-    period: '2026.05 - 2026.06',
+    period: '2026.05 - 2026.07',
     summary: [
       '배송 완료 사진 전수 수작업 검수를 AI 자동 채점 후 예외 건만 확인하는 구조로 전환하는 도구를 기획·설계 주도',
       'React 18 + Vite + TypeScript 기반 검수 대시보드 및 정합성 분석 화면 개발 (TanStack Query·Zustand 상태관리, Tailwind)',
@@ -46,7 +94,7 @@ export const PROJECTS: ProjectItem[] = [
     title: '나우히어로(MFC) 모바일 앱 단독 개발·출시·운영',
     subTitle:
       'React Native · Expo 기반 물류 업무용 모바일 앱을 설계부터 iOS/Android 정식 출시까지 단독 수행',
-    period: '2026.03 - 2026.06',
+    period: '2025.11 - 2026.07',
     summary: [
       '물류 업무용(입고·피킹·배송·회수·CS·출퇴근) 모바일 앱을 설계부터 iOS/Android 정식 출시까지 단독 수행, 스토어 심사 대응(권한 정리·개인정보처리방침) 포함',
       'Zustand·TanStack Query 기반 상태 관리 및 서버 데이터 흐름 구조화',
