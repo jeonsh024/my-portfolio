@@ -21,13 +21,13 @@ export const PROJECTS: ProjectItem[] = [
     id: 'frontend-toolchain-2026',
     title: '프론트엔드 빌드·테스트·린트 툴체인 현대화',
     subTitle:
-      'Vite 8·Node.js 24·Vitest로 전환해 빌드 시간을 67% 단축하고 테스트 안정성과 보안을 강화',
+      'Vite 8·Node.js 24·Vitest로 전환해 빌드 시간을 74% 단축하고 테스트 안정성과 보안을 강화',
     period: '2026.08',
     summary: [
-      'Vite 6 → 8(Rolldown), Node.js 20 → 24 업그레이드 및 Jest → Vitest 전환을 주도해 프로덕션 빌드 시간 67% 단축(9.84초 → 3.22초)',
-      '57개 테스트 스펙을 Vitest로 마이그레이션하고, 유닛 테스트 871건·E2E 테스트 87건 전량 통과 달성',
+      'Vite 6 → 8(Rolldown), Node.js 20 → 24 업그레이드 및 Jest → Vitest 전환을 주도해 프로덕션 빌드 시간 74% 단축(9.27초 → 2.41초)',
+      '유닛 테스트 2,468건·101개 파일 전량 통과를 확인하고 E2E를 주요 회귀 검증 게이트로 운영',
       'Vue Query 4 → 5 마이그레이션 중 장바구니 회귀를 E2E로 발견하고 쿼리·뮤테이션 라이프사이클 재설계',
-      'Axios·Swiper·Firebase 등 주요 의존성 업그레이드와 Jest·Vue CLI 레거시 제거로 보안 취약점 104건 → 42건 감소',
+      'Axios·Swiper·Firebase 등 주요 의존성 업그레이드와 Jest·Vue CLI 레거시 제거로 보안 취약점 129건 → 57건 감소',
       'oxlint·ESLint 하이브리드 린트 체계를 설계해 Vue 템플릿 검사 범위를 유지하면서 JS/TS 검사 시간 4.41초 → 0.41초 단축',
     ],
     skills: ['Vite 8', 'Node.js 24', 'Vitest', 'Playwright', 'Vue Query 5', 'oxlint'],
@@ -71,22 +71,6 @@ export const PROJECTS: ProjectItem[] = [
       'FastAPI',
       'Docker',
     ],
-    detailType: 'CONTENTS',
-  },
-  {
-    id: 'app2-perf-2026',
-    title: '앱 2.0 성능 최적화 — 부팅 번들 88% 경량화',
-    subTitle:
-      '번들 분석으로 초기 로딩 병목을 진단하고 최적화 주도, 부팅 JS 7.5MB → 874KB (88% 감소)',
-    period: '2026.04 - 2026.06',
-    summary: [
-      '번들 분석으로 초기 로딩 병목을 진단하고 최적화 주도, 부팅 JS 7.5MB → 874KB (88% 감소, gzip 기준 82% 감소)',
-      '아이콘 라이브러리(6,000+개) 동적 import 전환, HEIC 변환용 WASM 모듈(~2.9MB) 청크 분리, 데이트피커 비동기 등록으로 boot 번들 경량화 핵심 기여',
-      'vendor manual chunk 분리 설계로 전체 번들 19% 감소, 이미지·폰트 최적화로 에셋 67% 감소',
-      '인라인 연산의 computed 전환, v-for :key 누락 21건 일괄 수정으로 리스트 재렌더링 안정화',
-      '간편결제 입력 화면의 터치 반응 지연 개선 및 시각 피드백 추가로 결제 플로우 UX 개선',
-    ],
-    skills: ['Vue 3', 'TypeScript', 'Vite'],
     detailType: 'CONTENTS',
   },
   {
