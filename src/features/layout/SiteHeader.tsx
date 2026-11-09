@@ -1,7 +1,7 @@
 'use client'
 
 import { Download, Menu, X } from 'lucide-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { CONTACT, SHOW_PUBLISHING } from '@/data/profile'
 
 const NAV = [
@@ -14,8 +14,17 @@ const NAV = [
 
 export default function SiteHeader() {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
-    <header className="site-header">
+    <header className={scrolled ? 'site-header is-scrolled' : 'site-header'}>
       <a className="brand" href="#top">SEUNGHEE<span>.</span></a>
       <nav id="site-nav" className={open ? 'nav open' : 'nav'} aria-label="주요 메뉴">
         {NAV.map(([label, id]) => <a key={id} href={`#${id}`} onClick={() => setOpen(false)}>{label}</a>)}

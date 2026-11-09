@@ -1,5 +1,5 @@
 import { CASES } from '@/data/cases'
-import { CAREERS } from '@/data/profile'
+import { CAREERS, TOTAL_CAREER } from '@/data/profile'
 
 export default function Experience() {
   return (
@@ -7,7 +7,7 @@ export default function Experience() {
       <div className="section-label" data-reveal><span>02</span> EXPERIENCE</div>
       <div className="section-head" data-reveal>
         <h2>경력</h2>
-        <p>웹 퍼블리싱에서 시작해 커머스·물류 제품의 설계, 출시, 운영을 담당하는 프론트엔드 개발자로 성장했습니다.</p>
+        <p>총 경력 {TOTAL_CAREER}. 2022년부터 커머스·물류 제품의 프론트엔드를 맡고 있으며, 대표 프로젝트 {CASES.length}건은 모두 딜리버리랩에서의 작업입니다.</p>
       </div>
       <div className="timeline">
         {CAREERS.map(career => (
